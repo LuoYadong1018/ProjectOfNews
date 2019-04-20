@@ -1,0 +1,114 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.zzuli</groupId>
+  <artifactId>ProjectOfNews</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>ProjectOfNews Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+      <scope>test</scope>
+    </dependency>
+   <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+      <scope>test</scope>
+    </dependency>
+    <!-- struts 核心包 2.5.13-->
+    <!-- https://mvnrepository.com/artifact/org.apache.struts/struts2-core -->
+	<dependency>
+    	<groupId>org.apache.struts</groupId>
+    	<artifactId>struts2-core</artifactId>
+    	<version>2.5.13</version>
+	</dependency>
+    <!-- struts集成spring的jar包 -->
+    <!-- https://mvnrepository.com/artifact/org.apache.struts/struts2-spring-plugin -->
+	<dependency>
+   		 <groupId>org.apache.struts</groupId>
+   		 <artifactId>struts2-spring-plugin</artifactId>
+    	<version>2.5.13</version>
+	</dependency>
+    <!-- hibernate核心包5.17 -->
+    <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+	<dependency>
+    	<groupId>org.hibernate</groupId>
+    	<artifactId>hibernate-core</artifactId>
+   		<version>5.1.7.Final</version>
+	</dependency>
+    
+    <!-- spring核心包 4.3.18-->
+    <dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-core</artifactId>
+    <version>4.3.18.RELEASE</version>
+	</dependency>
+    <!-- spring-context-->
+     <dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-context</artifactId>
+    <version>4.3.18.RELEASE</version>
+   </dependency>
+    <!-- spring -AOP -->
+     <dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-aop</artifactId>
+    <version>4.3.18.RELEASE</version>
+    </dependency>
+    <!-- spring -Web -->
+    <dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-web</artifactId>
+    <version>4.3.18.RELEASE</version>
+    </dependency>
+    <!-- spring -beans -->
+    <dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-beans</artifactId>
+    <version>4.3.18.RELEASE</version>
+    </dependency>
+    <!-- spring -Transaction -->
+    <dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-tx</artifactId>
+    <version>4.3.18.RELEASE</version>
+    </dependency>
+    <!-- spring -aspects -->
+    <dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-aspects</artifactId>
+    <version>4.3.18.RELEASE</version>
+    </dependency>
+    <!-- spring Object/Relation/Mapping对象映射关系主要映射hibernate的jar包 -->
+    <dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-orm</artifactId>
+    <version>4.3.18.RELEASE</version>
+    </dependency>
+    <!-- mysql-connector-java-5.1.18-bin-jar：java连接数据库的驱动包 5.18-->
+    <dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>5.1.18</version>
+    </dependency>
+    
+    <!-- javax-servlet 1.2：jstl包主要用于EL表达式，jatl标签遍历 -->
+    <dependency>
+    <groupId>javax.servlet</groupId>
+    <artifactId>jstl</artifactId>
+    <version>1.2</version>
+    </dependency>  
+    
+    
+  
+    
+  </dependencies>
+  <build>
+    <finalName>ProjectOfNews</finalName>
+  </build>
+</project>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop.xsd
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx.xsd">
+	
+	<!-- 配置事务管理器 -->
+	<bean id="transactionManager" 
+			class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		
+		 <!-- 注入SessionFactory -->
+		 <property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- 配置事务 -->
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<!-- 配置事务属性 -->
+		<tx:attributes>
+			<tx:method name="insert*" propagation="REQUIRED" isolation="READ_COMMITTED"/>
+			<tx:method name="save*" propagation="REQUIRED" isolation="READ_COMMITTED"/>
+			<tx:method name="add*" propagation="REQUIRED" isolation="READ_COMMITTED"/>
+			<tx:method name="update*" propagation="REQUIRED" isolation="READ_COMMITTED"/>
+			<tx:method name="edit*" propagation="REQUIRED" isolation="READ_COMMITTED"/>
+			<tx:method name="delete*" propagation="REQUIRED" isolation="READ_COMMITTED"/>
+			<tx:method name="del*" propagation="REQUIRED" isolation="READ_COMMITTED"/>
+			
+			<tx:method name="query*" propagation="SUPPORTS" read-only="true"/>
+			<tx:method name="get*" propagation="SUPPORTS" read-only="true"/>
+			<tx:method name="select*" propagation="SUPPORTS" read-only="true"/>
+			<tx:method name="list*" propagation="SUPPORTS" read-only="true"/>
+			<tx:method name="*"/>
+		</tx:attributes>
+	</tx:advice>
+	<!-- 配置事务切入点 -->
+	<aop:config>
+		<!-- 配置切点表达式 -->
+		<aop:pointcut expression="execution(* com.news.service.*Impl.*(..))" id="exp"/>
+		<!-- 将切点表达式与事务建立联系 -->
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="exp"/>
+	</aop:config>
+</beans>

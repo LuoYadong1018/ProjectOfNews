@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<package name="default" extends="struts-default" namespace="/"  strict-method-invocation="false">
+	   <interceptors>
+	      <interceptor name="lgoin" class="com.news.util.LoginInterceptor"></interceptor>
+	      <interceptor-stack name="mystack">
+	         <interceptor-ref name="lgoin"></interceptor-ref>
+	         <interceptor-ref name="defaultStack"></interceptor-ref>
+	      </interceptor-stack>
+	   </interceptors>
+	   <default-interceptor-ref name="mystack"></default-interceptor-ref>
+	   
+	    <global-results>
+	      <result name="loginOut" type="redirect" >/Login.jsp</result>
+	   </global-results>
+	   
+	    <action name="userLogin"  class="userAction" method="userLogin">
+	     <result  type="redirect">/Main.jsp</result>
+	     <result name="no">/Login.jsp</result>
+	    </action>
+	    
+	    
+	   <action name="*User"  class="accountAction" method="{1}User">
+	      <result name="queryList">/AccountManagement.jsp</result>
+	      <result name="list"  type="redirect">queryUser</result>
+	   </action>
+	   
+	   
+	    <action name="*Channel" class="channelAction" method="{1}Channel">
+	     <result>/ChannelManagement.jsp</result>
+	     <result name="list" type="redirect">/queryChannel</result>
+	  </action>
+	   
+	   
+	    <action name="*News" class="newsAction" method="{1}News">
+	     <result>/NewsManagement.jsp</result>
+	     <result name="showNews">/NewsInsert.jsp</result>
+	     <result name="showupdateNews">/NewsUpdate.jsp</result>
+	     <result name="list" type="redirect">/queryNews</result>
+	  </action>
+	   
+	</package>
+</struts>
